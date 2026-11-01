@@ -1,0 +1,13 @@
+
+# Arquivos temporários do macOS
+.DS_Store
+
+# Arquivos gerados durante a compilação Verilog
+register_test
+*.vvp
+*.vcd
+*.fst
+
+# Arquivos temporários de editores
+*.swp
+*~

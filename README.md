@@ -86,3 +86,37 @@ Os seguintes componentes foram implementados e testados individualmente ou em in
 - Memória de instruções, com leitura inicial do arquivo hexadecimal validada.
 
 **Observação:** a implementação completa do pipeline de cinco estágios ainda está em desenvolvimento. Os testes atuais verificam os componentes e a busca de instruções, não a execução completa do programa.
+
+
+## Configuração dos caminhos dos módulos Verilog no Digital
+
+O circuito utiliza módulos Verilog externos, referenciados pelo simulador Digital. Como os caminhos desses arquivos podem variar entre computadores, é necessário verificar as referências antes de iniciar a simulação.
+
+### Procedimento
+
+1. Baixe e extraia a pasta completa do projeto.
+2. Abra o arquivo `CPU_RISCV.dig` no Digital.
+3. Para cada componente Verilog externo, abra suas propriedades.
+4. No campo **Program code**, selecione o arquivo `.v` correspondente, localizado na pasta do projeto.
+5. Confira se **Application** está configurado como `IVerilog`.
+6. Repita o procedimento para os demais módulos externos.
+7. Nas configurações do Digital, verifique se o executável do Icarus Verilog está configurado corretamente.
+
+### Arquivos Verilog
+
+| Componente no Digital | Arquivo correspondente |
+|---|---|
+| ALU_32 | `ALU_32.v` |
+| RegisterFile_32 | `RegisterFile_32.v` |
+| ProgramCounter_32 | `ProgramCounter_32.v` |
+| PC_Adder_32 | `PC_Adder_32.v` |
+| InstructionMemory_32 | `InstructionMemory_32.v` |
+| IF_ID_Register | `IF_ID_Register.v` |
+
+### Configuração adicional da memória
+
+Além dos caminhos dos componentes, é necessário atualizar o caminho absoluto de `program.hex` dentro de `InstructionMemory_32.v`, conforme explicado na seção **Configuração da memória de instruções**.
+
+Após salvar as alterações, reinicie a simulação.
+
+**Importante:** não é necessário modificar a lógica dos módulos Verilog. Apenas as referências aos arquivos devem ser ajustadas para o ambiente em que o projeto será executado.

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>ExternalFile</elementName>
+      <elementAttributes>
+        <entry>
+          <string>applicationType</string>
+          <appType>IVERILOG</appType>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>ALU_32</string>
+        </entry>
+        <entry>
+          <string>externalInputs</string>
+          <string>A:32,B:32,ALUControl:4</string>
+        </entry>
+        <entry>
+          <string>Width</string>
+          <int>5</int>
+        </entry>
+        <entry>
+          <string>externalOutputs</string>
+          <string>Result:32,Zero</string>
+        </entry>
+        <entry>
+          <string>CodeFile</string>
+          <file>/Users/kellysoares/Documents/Faculdade/arqComp/RICV_entrega/ALU_32.v</file>
+        </entry>
+      </elementAttributes>
+      <pos x="620" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ALUControl</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>4</int>
+        </entry>
+      </elementAttributes>
+      <pos x="500" y="320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Result</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="820" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Zero</string>
+        </entry>
+      </elementAttributes>
+      <pos x="820" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>ExternalFile</elementName>
+      <elementAttributes>
+        <entry>
+          <string>applicationType</string>
+          <appType>IVERILOG</appType>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>RegisterFile_32</string>
+        </entry>
+        <entry>
+          <string>externalInputs</string>
+          <string>clk,reset,RegWrite,rs1:5,rs2:5,rd:5,WriteData:32</string>
+        </entry>
+        <entry>
+          <string>externalOutputs</string>
+          <string>ReadData1:32,ReadData2:32</string>
+        </entry>
+        <entry>
+          <string>Width</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>CodeFile</string>
+          <file>/Users/kellysoares/Documents/Faculdade/arqComp/RICV_entrega/RegisterFile_32.v</file>
+        </entry>
+      </elementAttributes>
+      <pos x="-120" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes/>
+      <pos x="-280" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>reset</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>RegWrite</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>rs1</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>5</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>rs2</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>5</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="360"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>rd</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>5</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>WriteData</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="440"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ReadData1</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ReadData2</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>ExternalFile</elementName>
+      <elementAttributes>
+        <entry>
+          <string>applicationType</string>
+          <appType>IVERILOG</appType>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>ProgramCounter_32</string>
+        </entry>
+        <entry>
+          <string>externalInputs</string>
+          <string>clk,reset,PCWrite,NextPC:32</string>
+        </entry>
+        <entry>
+          <string>Width</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>externalOutputs</string>
+          <string>PC:32</string>
+        </entry>
+        <entry>
+          <string>CodeFile</string>
+          <file>/Users/kellysoares/Documents/Faculdade/arqComp/RICV_entrega/ProgramCounter_32.v</file>
+        </entry>
+      </elementAttributes>
+      <pos x="-100" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PCWrite</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-180" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PC</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>ExternalFile</elementName>
+      <elementAttributes>
+        <entry>
+          <string>applicationType</string>
+          <appType>IVERILOG</appType>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>PC_Adder_32</string>
+        </entry>
+        <entry>
+          <string>externalInputs</string>
+          <string>PC:32</string>
+        </entry>
+        <entry>
+          <string>Width</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>externalOutputs</string>
+          <string>PCPlus4:32</string>
+        </entry>
+        <entry>
+          <string>CodeFile</string>
+          <file>/Users/kellysoares/Documents/Faculdade/arqComp/RICV_entrega/PC_Adder_32.v</file>
+        </entry>
+      </elementAttributes>
+      <pos x="240" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PCPlus4</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="-60"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="500" y="320"/>
+      <p2 x="540" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="320"/>
+      <p2 x="-220" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="-160" y="320"/>
+      <p2 x="-120" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="-100"/>
+      <p2 x="-100" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="-220" y="260"/>
+      <p2 x="-120" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="-180" y="-40"/>
+      <p2 x="-100" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="200"/>
+      <p2 x="820" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="200"/>
+      <p2 x="-260" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="200"/>
+      <p2 x="80" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="200"/>
+      <p2 x="-120" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="200"/>
+      <p2 x="620" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="360"/>
+      <p2 x="-200" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="-180" y="300"/>
+      <p2 x="-120" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-80"/>
+      <p2 x="-100" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="240"/>
+      <p2 x="620" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="240"/>
+      <p2 x="820" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="240"/>
+      <p2 x="-260" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="240"/>
+      <p2 x="-120" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="400"/>
+      <p2 x="-180" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="-120" y="-20"/>
+      <p2 x="-100" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-120" y="20"/>
+      <p2 x="420" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="280"/>
+      <p2 x="-240" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="-200" y="280"/>
+      <p2 x="-120" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="440"/>
+      <p2 x="-160" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="120"/>
+      <p2 x="80" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="-60"/>
+      <p2 x="160" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="-60"/>
+      <p2 x="420" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="-60"/>
+      <p2 x="460" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-60"/>
+      <p2 x="240" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="220"/>
+      <p2 x="800" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="220"/>
+      <p2 x="-240" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="220"/>
+      <p2 x="60" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="220"/>
+      <p2 x="620" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="220"/>
+      <p2 x="-120" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="220"/>
+      <p2 x="800" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-160"/>
+      <p2 x="160" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="220"/>
+      <p2 x="-260" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="-100"/>
+      <p2 x="-260" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="-60"/>
+      <p2 x="420" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-200" y="280"/>
+      <p2 x="-200" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="240"/>
+      <p2 x="-240" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-80"/>
+      <p2 x="-240" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="160"/>
+      <p2 x="80" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="-180" y="300"/>
+      <p2 x="-180" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="-120" y="-20"/>
+      <p2 x="-120" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-220" y="260"/>
+      <p2 x="-220" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="240"/>
+      <p2 x="540" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="120"/>
+      <p2 x="60" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="-160" y="320"/>
+      <p2 x="-160" y="440"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

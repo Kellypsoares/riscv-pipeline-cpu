@@ -25,6 +25,10 @@ module ID_EX_Register (
     input wire Branch_in,
     input wire Jump_in,
 
+    // Novas entradas para branches e jumps
+    input wire [6:0] opcode_in,
+    input wire [2:0] funct3_in,
+
     // Dados armazenados
     output reg [31:0] PC_out,
     output reg [31:0] ReadData1_out,
@@ -42,7 +46,11 @@ module ID_EX_Register (
     output reg MemWrite_out,
     output reg MemToReg_out,
     output reg Branch_out,
-    output reg Jump_out
+    output reg Jump_out,
+
+    // Novas saidas para branches e jumps
+    output reg [6:0] opcode_out,
+    output reg [2:0] funct3_out
 );
 
     always @(posedge clk or posedge reset) begin
@@ -63,6 +71,9 @@ module ID_EX_Register (
             MemToReg_out <= 1'b0;
             Branch_out <= 1'b0;
             Jump_out <= 1'b0;
+
+            opcode_out <= 7'b0;
+            funct3_out <= 3'b0;
         end
         else if (Flush) begin
             PC_out <= 32'b0;
@@ -81,6 +92,9 @@ module ID_EX_Register (
             MemToReg_out <= 1'b0;
             Branch_out <= 1'b0;
             Jump_out <= 1'b0;
+
+            opcode_out <= 7'b0;
+            funct3_out <= 3'b0;
         end
         else begin
             PC_out <= PC_in;
@@ -99,6 +113,9 @@ module ID_EX_Register (
             MemToReg_out <= MemToReg_in;
             Branch_out <= Branch_in;
             Jump_out <= Jump_in;
+
+            opcode_out <= opcode_in;
+            funct3_out <= funct3_in;
         end
     end
 

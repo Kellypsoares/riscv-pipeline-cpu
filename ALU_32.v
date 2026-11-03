@@ -16,6 +16,7 @@ module ALU_32 (
             4'b0011: Result = A ^ B;       // XOR
             4'b0100: Result = A << B[4:0]; // SLL
             4'b0101: Result = A >> B[4:0]; // SRL
+            4'b0111: Result = B;           // LUI
             default: Result = 32'b0;
         endcase
     end

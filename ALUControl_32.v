@@ -11,9 +11,14 @@ module ALUControl_32 (
         ALUControl = 4'b0010; // Soma por padrão
 
         case (ALUOp)
-            2'b00: ALUControl = 4'b0010; // LW, SW, endereços
+            2'b00: begin
+                if (opcode == 7'b0110111)
+                    ALUControl = 4'b0111; // LUI: resultado = B
+                else
+                    ALUControl = 4'b0010; // LW, SW, AUIPC
+            end
 
-            2'b01: ALUControl = 4'b0110; // Subtração para BEQ/BNE
+            2'b01: ALUControl = 4'b0110; // BEQ/BNE
 
             2'b10: begin
                 case (funct3)

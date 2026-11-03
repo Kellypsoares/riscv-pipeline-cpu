@@ -13,20 +13,32 @@ module RegisterFile_32 (
     output wire [31:0] ReadData1,
     output wire [31:0] ReadData2,
     output wire [31:0] DebugX3,
-    output wire [31:0] DebugX4
+    output wire [31:0] DebugX4,
+    output wire [31:0] DebugX1
 );
 
     reg [31:0] registers [0:31];
 
     integer i;
 
-    // Leitura de dois registradores
-    assign ReadData1 = (rs1 == 0) ? 32'b0 : registers[rs1];
-    assign ReadData2 = (rs2 == 0) ? 32'b0 : registers[rs2];
+    // Leitura com WB -> ID forwarding
+    // Se o registrador lido estiver sendo escrito
+    // no mesmo ciclo, utiliza diretamente WriteData.
+
+    assign ReadData1 =
+        (rs1 == 0) ? 32'b0 :
+        (RegWrite && rd != 0 && rd == rs1) ? WriteData :
+        registers[rs1];
+
+    assign ReadData2 =
+        (rs2 == 0) ? 32'b0 :
+        (RegWrite && rd != 0 && rd == rs2) ? WriteData :
+        registers[rs2];
 
     // Saidas de diagnostico
     assign DebugX3 = registers[3];
     assign DebugX4 = registers[4];
+    assign DebugX1 = registers[1];
 
     // Escrita na borda de subida do clock
     always @(posedge clk or posedge reset) begin

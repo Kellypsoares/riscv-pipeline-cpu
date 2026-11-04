@@ -1091,7 +1091,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>LoadWrite</string>
+          <string>LoadWrite_DM</string>
         </entry>
       </elementAttributes>
       <pos x="1720" y="340"/>
@@ -1101,7 +1101,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>LoadAddress</string>
+          <string>LoadAddress_DM</string>
         </entry>
         <entry>
           <string>Bits</string>
@@ -1115,7 +1115,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>LoadData</string>
+          <string>LoadData_DM</string>
         </entry>
         <entry>
           <string>Bits</string>

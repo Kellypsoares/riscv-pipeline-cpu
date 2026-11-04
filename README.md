@@ -189,16 +189,16 @@ As memórias de instruções e dados têm interfaces externas independentes:
 | `LoadData_IM` / `LoadData_DM` | 32 bits | Palavra a ser gravada |
 | `DebugLoadData` | 32 bits | Visualização do conteúdo no endereço de carregamento |
 
-`IM` identifica a memória de instruções; `DM`, a memória de dados. Os endereços são alinhados em palavras de 32 bits: por exemplo, endereços `0`, `4` e `8` selecionam as três primeiras posições. Os módulos usam os bits `LoadAddress[9:2]`, correspondentes a 256 palavras.
+`IM` identifica a memória de instruções; `DM`, a memória de dados. Os endereços são alinhados em palavras de 32 bits: por exemplo, endereços `0`, `4` e `8` selecionam as três primeiras posições. As portas internas dos módulos Verilog permanecem `LoadWrite`, `LoadAddress` e `LoadData`, sem os sufixos usados nos rótulos do circuito. Os módulos usam os bits `LoadAddress[9:2]`, correspondentes a 256 palavras.
 
 ### Como carregar uma palavra sem clock
 
 1. Inicie a simulação, mantenha `reset = 0` e coloque `Enable = 0`.
-2. Mantenha os dois sinais `LoadWrite` em 0.
-3. Escolha a memória e configure `LoadAddress` e `LoadData` correspondentes.
-4. Produza um pulso no respectivo `LoadWrite`: **`0 → 1 → 0`**, sem pulsar o clock geral.
+2. Mantenha `LoadWrite_IM = LoadWrite_DM = 0`.
+3. Escolha a memória e configure `LoadAddress_IM` e `LoadData_IM` para instruções, ou `LoadAddress_DM` e `LoadData_DM` para dados.
+4. Produza um pulso em `LoadWrite_IM` ou `LoadWrite_DM`, conforme a memória selecionada: **`0 → 1 → 0`**, sem pulsar o clock geral.
 5. Confira o conteúdo em `DebugLoadData` da memória selecionada.
-6. Para retomar a CPU, mantenha ambos os `LoadWrite = 0`, altere `Enable = 1` e volte a pulsar o clock.
+6. Para retomar a CPU, mantenha `LoadWrite_IM = LoadWrite_DM = 0`, altere `Enable = 1` e volte a pulsar o clock.
 
 **Exemplo — memória de dados:** `LoadAddress_DM = 0`, `LoadData_DM = 42` (decimal), seguido de um pulso em `LoadWrite_DM`, resulta em `DebugLoadData = 0x2A`. A mudança posterior de `LoadData_DM` sem novo pulso não altera a palavra armazenada.
 
@@ -250,6 +250,7 @@ Os resultados foram verificados por meio das saídas de diagnóstico do banco de
 | Saída | Conteúdo |
 |---|---|
 | `DebugX1` | Valor armazenado em x1 |
+| `DebugX2` | Valor armazenado em x2 |
 | `DebugX3` | Valor armazenado em x3 |
 | `DebugX4` | Valor armazenado em x4 |
 

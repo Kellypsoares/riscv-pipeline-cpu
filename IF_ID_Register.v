@@ -9,7 +9,10 @@ module IF_ID_Register (
     input wire [31:0] Instruction_in,
 
     output reg [31:0] PC_out,
-    output reg [31:0] Instruction_out
+    output reg [31:0] Instruction_out,
+
+    // Controle de pausa da CPU
+    input wire Enable
 );
 
     always @(posedge clk or posedge reset) begin
@@ -17,13 +20,15 @@ module IF_ID_Register (
             PC_out <= 32'b0;
             Instruction_out <= 32'b0;
         end
-        else if (Flush) begin
-            PC_out <= 32'b0;
-            Instruction_out <= 32'b0;
-        end
-        else if (IF_ID_Write) begin
-            PC_out <= PC_in;
-            Instruction_out <= Instruction_in;
+        else if (Enable) begin
+            if (Flush) begin
+                PC_out <= 32'b0;
+                Instruction_out <= 32'b0;
+            end
+            else if (IF_ID_Write) begin
+                PC_out <= PC_in;
+                Instruction_out <= Instruction_in;
+            end
         end
     end
 

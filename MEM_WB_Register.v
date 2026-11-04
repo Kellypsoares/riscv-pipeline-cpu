@@ -13,7 +13,7 @@ module MEM_WB_Register (
     input wire RegWrite_in,
     input wire MemToReg_in,
 
-    // Novas entradas para JAL e JALR
+    // Entradas para JAL e JALR
     input wire [31:0] PC_in,
     input wire Jump_in,
 
@@ -26,13 +26,18 @@ module MEM_WB_Register (
     output reg RegWrite_out,
     output reg MemToReg_out,
 
-    // Novas saidas para JAL e JALR
+    // Saidas para JAL e JALR
     output reg [31:0] PC_out,
-    output reg Jump_out
+    output reg Jump_out,
+
+    // Controle de habilitacao
+    input wire Enable
 );
 
     always @(posedge clk or posedge reset) begin
-        if (reset || Flush) begin
+
+        // Reset tem prioridade
+        if (reset) begin
             ALUResult_out <= 32'b0;
             ReadData_out <= 32'b0;
             rd_out <= 5'b0;
@@ -41,14 +46,31 @@ module MEM_WB_Register (
             PC_out <= 32'b0;
             Jump_out <= 1'b0;
         end
-        else begin
-            ALUResult_out <= ALUResult_in;
-            ReadData_out <= ReadData_in;
-            rd_out <= rd_in;
-            RegWrite_out <= RegWrite_in;
-            MemToReg_out <= MemToReg_in;
-            PC_out <= PC_in;
-            Jump_out <= Jump_in;
+
+        // Enable = 0: mantem o estado atual
+        else if (Enable) begin
+
+            // Flush so atua quando Enable = 1
+            if (Flush) begin
+                ALUResult_out <= 32'b0;
+                ReadData_out <= 32'b0;
+                rd_out <= 5'b0;
+                RegWrite_out <= 1'b0;
+                MemToReg_out <= 1'b0;
+                PC_out <= 32'b0;
+                Jump_out <= 1'b0;
+            end
+
+            // Funcionamento normal
+            else begin
+                ALUResult_out <= ALUResult_in;
+                ReadData_out <= ReadData_in;
+                rd_out <= rd_in;
+                RegWrite_out <= RegWrite_in;
+                MemToReg_out <= MemToReg_in;
+                PC_out <= PC_in;
+                Jump_out <= Jump_in;
+            end
         end
     end
 
